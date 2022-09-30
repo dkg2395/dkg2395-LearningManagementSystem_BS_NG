@@ -8,7 +8,7 @@ import { UserAuthService } from './user-auth.service';
   providedIn: 'root',
 })
 export class UserService {
-  PATH_OF_API = 'http://localhost:8877';
+  PATH_OF_API = 'http://localhost:8070/api/v1.0/lms/courses';
 
   requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
   constructor(
@@ -23,7 +23,7 @@ export class UserService {
   }
 
   register(user:User): Observable<User> {
-    return this.httpclient.post<User>("http://localhost:8877/registerNewUser", user,{
+    return this.httpclient.post<User>(this.PATH_OF_API +'/registerNewUser', user,{
       headers: this.requestHeader,
     });
   }
