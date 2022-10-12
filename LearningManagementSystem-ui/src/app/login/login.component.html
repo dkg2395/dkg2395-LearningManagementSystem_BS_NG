@@ -5,12 +5,14 @@
             ngModel
             name="userName"
             id="userName"
+            required
             placeholder="Enter your username"
             class="form-control mb-3"
             >
 
             <input type="password"
             ngModel
+            required
             name="userPassword"
             id="userPassword"
             placeholder="Enter your password"
@@ -19,7 +21,7 @@
 
             <input type="submit"
             value="Login"
-            class="btn btn-outline-primary form-control rounded-0">
+            class="btn btn-outline-success form-control rounded-0">
             <a routerLink="/register">Click Here for Register</a>
         </form>
     </div>
