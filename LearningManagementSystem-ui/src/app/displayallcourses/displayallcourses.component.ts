@@ -30,6 +30,7 @@ export class DisplayallcoursesComponent implements OnInit {
   this.coursesserviceService.getAllCourse().subscribe(data=>{
     this.courses=data
     console.log(this.courses)
+    this.technology=''
 
    });
    
@@ -43,11 +44,18 @@ export class DisplayallcoursesComponent implements OnInit {
     })
   }
 
+  clearSerach(){
+    this.technology=''
+  }
+
   getByTechnologyAndDuration(){
 
     this.coursesserviceService.getByTechnoandDuration(this.bytechnology,this.courseDuration).subscribe(data=>{
       this.courses=data
     console.log(this.courses)
+    this.technology=''
+    this.bytechnology=''
+    this.courseDuration=undefined;
     })
   }
 
