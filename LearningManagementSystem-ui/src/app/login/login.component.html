@@ -1,14 +1,19 @@
-<div class="container mt-5">
-    <div class="card" style="padding: 20px;">
-        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+<div class="container mt-5  center_div">
+    <div class="card " style="padding: 20px;">
+        <p class='error' *ngIf='loginFailed' style="color:red;">The username or password is invalid.</p>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="my-2 my-lg-0">
             <input type="text"
             ngModel
             name="userName"
             id="userName"
+           
             required
             placeholder="Enter your username"
             class="form-control mb-3"
             >
+            
+
+            
 
             <input type="password"
             ngModel
@@ -18,10 +23,11 @@
             placeholder="Enter your password"
             class="form-control mb-3"
             >
+            
 
             <input type="submit"
             value="Login"
-            class="btn btn-outline-success form-control rounded-0">
+            class="btn btn-outline-success form-control rounded-0" [disabled]="!loginForm.valid">
             <a routerLink="/register">Click Here for Register</a>
         </form>
     </div>

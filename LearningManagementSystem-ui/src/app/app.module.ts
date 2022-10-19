@@ -9,7 +9,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AuthGuard } from './_auth/auth.guard';
@@ -17,6 +17,7 @@ import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_services/user.service';
 import { RegisterComponent } from './register/register.component';
 import { DisplayallcoursesComponent } from './displayallcourses/displayallcourses.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { DisplayallcoursesComponent } from './displayallcourses/displayallcourse
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
+  
   ],
   providers: [
     AuthGuard,

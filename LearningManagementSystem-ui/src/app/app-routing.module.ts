@@ -10,9 +10,10 @@ import { UserComponent } from './user/user.component';
 import { AuthGuard } from './_auth/auth.guard';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  
   { path: 'allcourses', component: DisplayallcoursesComponent ,canActivate:[AuthGuard], data:{roles:['User']}},
   { path: 'admin', component: AdminComponent, canActivate:[AuthGuard], data:{roles:['Admin']} },
   { path: 'user', component: UserComponent ,  canActivate:[AuthGuard], data:{roles:['User']} },

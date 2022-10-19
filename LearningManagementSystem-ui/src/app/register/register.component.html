@@ -2,41 +2,68 @@
   <div class="card" style="padding: 20px;">
 
     <h3>User Register Form</h3>
-<div [hidden]="submitted">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-     
-      <input type="text" class="form-control mb-3" id="userName"  placeholder="Enter your username i.e abc@123" required [(ngModel)]="user.userName" name="userName">
+    <div [hidden]="submitted">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+
+          <span class="text-danger" *ngIf="(userName.touched || userName.submitted) && userName.errors?.required">
+            UserName is required
+          </span>
+
+          <input type="text" class="form-control mb-3" id="userName" placeholder="Enter your username i.e abc@123"
+            #userName="ngModel" required [(ngModel)]="user.userName" name="userName">
+          
+        </div>
+
+        <div class="form-group">
+
+          <span class="text-danger" *ngIf="(userFirstName.touched || userFirstName.submitted) && userFirstName.errors?.required">
+            FirstName is required
+            </span>
+
+          <input type="text" class="form-control mb-3" id="userFirstName" placeholder="Enter your FirstName" required
+            [(ngModel)]="user.userFirstName" #userFirstName="ngModel" name="userFirstName">
+
+           
+        </div>
+
+        <div class="form-group">
+
+          <span class="text-danger" *ngIf="(userLastName.touched || userLastName.submitted) && userLastName.errors?.required">
+            LastName is required
+            </span>
+
+          <input type="text" class="form-control mb-3" placeholder="Enter your LastName" id="userLastName" required
+            [(ngModel)]="user.userLastName" name="userLastName" #userLastName="ngModel">
+           
+            
+        </div>
+
+        <div class="form-group">
+
+          <span class="text-danger" *ngIf="(userPassword.touched || userPassword.submitted) && userPassword.errors?.required">
+            Password is required
+            </span>
+
+          <input type="password" placeholder="Enter your Password" class="form-control mb-3" id="userPassword" required
+            [(ngModel)]="user.userPassword" name="userPassword" #userPassword="ngModel">
+            
+
+        </div>
+
+        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-outline-primary form-control rounded-0">Register</button>&nbsp;&nbsp;&nbsp;
+
+      </form>
+
     </div>
 
-    <div class="form-group">
-     
-      <input type="text" class="form-control mb-3" id="userFirstName"  placeholder="Enter your FirstName" required [(ngModel)]="user.userFirstName" name="userFirstName">
+    <div [hidden]="!submitted">
+      <h4>Your registration successful..</h4>
+
     </div>
-
-    <div class="form-group">
-     
-      <input type="text" class="form-control mb-3"  placeholder="Enter your LastName" id="userLastName" required [(ngModel)]="user.userLastName" name="userLastName">
+    <div>
+      <a class="text-success" routerLink="/login">Click here for login if already register</a>
     </div>
-
-    <div class="form-group">
-        
-        <input type="password"   placeholder="Enter your Password" class="form-control mb-3" id="userPassword" required [(ngModel)]="user.userPassword" name="userPassword">
-      </div>
-
-    <button type="submit"  class="btn btn-outline-primary form-control rounded-0">Register</button>&nbsp;&nbsp;&nbsp;
-    
-  </form>
- 
-</div>
-
-<div [hidden]="!submitted">
-  <h4>Your registration successful..</h4>
-  
-</div>
-<div>
-    <a class="text-success" routerLink="/login">Click here for login if already register</a>
-</div>
 
 
   </div>
